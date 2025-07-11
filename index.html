@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Celulares AX </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #181818;
+            color: #f4f4f4;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .navbar {
+            background: #0d47a1;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .header {
+            background: #1565c0;
+            color: #fff;
+            padding: 40px 0 20px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 0;
+        }
+        .header p {
+            font-size: 1.2rem;
+            margin-top: 8px;
+        }
+        .card {
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px 0 rgba(13,71,161,0.10);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 32px 0 rgba(13,71,161,0.20);
+        }
+        .card-title {
+            color: #1976d2;
+            font-weight: bold;
+        }
+        .btn-buy {
+            background: #1976d2;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .btn-buy:hover {
+            background: #64b5f6;
+            color: #222;
+        }
+        .footer {
+            background: #0d47a1;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0 10px 0;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+        .modal-content {
+            background: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#"> Celulares em AX</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header" id="inicio">
+        <h1>📱 Celulares em AX</h1>
+        <p>Os melhores smartphones das melhores marcas, com preço justo e entrega rápida!</p>
+    </div>
+
+    <div class="container my-5" id="produtos">
+        <h2 class="mb-4 text-center" style="color:#64b5f6;">Nossos Celulares</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="imagem.jpg" class="imagem" alt="iPhone 13">
+                    <div class="card-body">
+                        <h5 class="card-title">iPhone 13</h5>
+                        <p class="card-text">Tela 6.1", 128GB, Câmera Dupla 12MP, iOS 15.</p>
+                        <p class="card-text"><strong>R$ 4.999,00</strong></p>
+                        <button class="btn btn-buy" onclick="buy('iPhone 13')">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center">
+                    <img src="imagem (1).jpg" class="card-img-top" alt="Samsung Galaxy S22">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung Galaxy S22</h5>
+                        <p class="card-text">Tela 6.2", 256GB, Câmera Tripla 50MP, Android 12.</p>
+                        <p class="card-text"><strong>R$ 3.799,00</strong></p>
+                        <button class="btn btn-buy" onclick="buy('Samsung Galaxy S22')">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="imagem 2.webp" class="card-img-top" alt="Xiaomi Redmi Note 11">
+                    <div class="card-body">
+                        <h5 class="card-title">Xiaomi Redmi Note 11</h5>
+                        <p class="card-text">Tela 6.43", 128GB, Câmera Quádrupla 50MP, Android 11.</p>
+                        <p class="card-text"><strong>R$ 1.499,00</strong></p>
+                        <button class="btn btn-buy" onclick="buy('Xiaomi Redmi Note 11')">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato -->
+    <div class="container my-5" id="contato">
+        <h2 class="mb-4 text-center" style="color:#64b5f6;">Fale Conosco</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form onsubmit="sendContact(event)">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-buy w-100">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Compra -->
+    <div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="modalCompraLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCompraLabel">Compra realizada!</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body" id="modalCompraBody">
+            Obrigado por comprar conosco!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-buy" data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Contato -->
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalContatoLabel">Mensagem enviada!</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            Obrigado pelo contato! Em breve responderemos.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-buy" data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5" id="localizacao">
+        <h2 class="mb-4 text-center" style="color:#64b5f6;">Nossa Localização</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-3">
+                    <h5 class="card-title mb-3" style="color:#1976d2;">Venha nos visitar!</h5>
+                    <p class="card-text">
+                        Rua Frederico de Castro Pereira 1055<br>
+                        Baixada Fluminense - RJ<br>
+                        CEP: 26015060<br>
+                        Telefone: (21) 98321-3493
+                    </p>
+                    <div class="ratio ratio-16x9 rounded">
+                        <iframe 
+                            src="https://www.google.com/maps?q=-23.55052,-46.633308&z=15&output=embed" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Mapa da Loja de Celulares"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 AX Celulares. Todos os direitos reservados.
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function buy(produto) {
+            document.getElementById('modalCompraBody').innerText = 
+                'Você comprou: ' + produto + '. Em breve entraremos em contato para finalizar a compra!';
+            var modal = new bootstrap.Modal(document.getElementById('modalCompra'));
+            modal.show();
+        }
+        function sendContact(event) {
+            event.preventDefault();
+            var modal = new bootstrap.Modal(document.getElementById('modalContato'));
+            modal.show();
+            document.getElementById('nome').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('mensagem').value = '';
+        }
+    </script>
+</body>
+</html>
